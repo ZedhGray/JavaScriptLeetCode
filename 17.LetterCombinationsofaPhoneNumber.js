@@ -16,4 +16,38 @@ Input: digits = "2"
 Output: ["a","b","c"]
 */
 
-var letterCombinations = function (digits) {}
+function letterCombinations(digits) {
+  const mapping = [
+    '0',
+    '1',
+    'abc',
+    'def',
+    'ghi',
+    'jkl',
+    'mno',
+    'pqrs',
+    'tuv',
+    'wxyz',
+  ]
+
+  if (!digits.length) return []
+
+  let result = []
+  const currentDigitLetters = mapping[digits[0]]
+
+  for (let i = 0; i < currentDigitLetters.length; i++) {
+    if (digits.length === 1) {
+      result.push(currentDigitLetters[i])
+    } else {
+      const remainingDigits = digits.slice(1)
+      const subResults = letterCombinations(remainingDigits)
+      for (const subResult of subResults) {
+        result.push(currentDigitLetters[i] + subResult)
+      }
+    }
+  }
+
+  return result
+}
+
+console.log(letterCombinations('23'))
