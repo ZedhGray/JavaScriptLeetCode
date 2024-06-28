@@ -1,6 +1,7 @@
 /*
 Given a binary tree, determine if it is 
-height-balanced */
+height-balanced
+*/
 var isBalanced = function (root) {
   if (!root) return 1
   let heightL = isBalanced(root.left)
