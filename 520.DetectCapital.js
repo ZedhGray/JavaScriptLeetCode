@@ -15,15 +15,17 @@ var detectCapitalUse = function (word) {
   }
 
   let letters = Array.from(word)
+  let check = false
+
   if (letters[0] == letters[0].toUpperCase()) {
     for (let i = 1; i < letters.length; i++) {
-      console.log(letters[i])
       if (letters[i] !== letters[i].toLowerCase()) {
-        return false
+        return check
       }
     }
-    return true
+    check = true
   }
+  return check
 }
-let word = 'FlaG'
+let word = 'ffffffffffffffffffffF'
 console.log(detectCapitalUse(word))
