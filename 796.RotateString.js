@@ -6,5 +6,5 @@ A shift on s consists of moving the leftmost character of s to the rightmost pos
 For example, if s = "abcde", then it will be "bcdea" after one shift.
 */
 var rotateString = function (s, goal) {
-    
+  return s.length == goal.length && (s + s).includes(goal)
 }
